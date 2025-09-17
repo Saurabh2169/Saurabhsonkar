@@ -1,0 +1,84 @@
+import zipfile
+import os
+
+# Folder for ready-to-upload GitHub Pages website
+folder_name = '/mnt/data/saurabh-github-pages-website'
+os.makedirs(folder_name, exist_ok=True)
+
+# index.html content (ready-to-upload)
+index_html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saurabh Sonkar | Official Website</title>
+  <meta name="description" content="Saurabh Sonkar — Aspiring Programmer from Isauli, Sultanpur, UP. Contact: +91-7052739241, Email: saurabh894862@gmail.com.">
+  <meta name="keywords" content="Saurabh Sonkar, Programmer, BCA, KMCLU, Isauli, Sultanpur, Software Engineer, Portfolio">
+  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f6f8; color: #333; }
+    header { background: #00796b; color: #fff; text-align: center; padding: 40px 20px; }
+    header img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #fff; object-fit: cover; }
+    header h1 { margin: 15px 0 5px; font-size: 32px; }
+    header p { margin: 5px 0; font-size: 18px; }
+    .social a { text-decoration: none; color: #fff; margin: 0 12px; font-weight: bold; transition: color 0.3s ease; }
+    .social a:hover { color: #e52e71; }
+    section { padding: 30px 20px; max-width: 800px; margin: auto; background: #fff; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin-top: -40px; }
+    h2 { color: #00796b; margin-bottom: 12px; font-size: 24px; }
+    p { line-height: 1.7; font-size: 16px; }
+    footer { text-align: center; padding: 20px; background: #00796b; color: #fff; margin-top: 20px; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://i.ibb.co/4432a1c97535024fd79e9512f4a11b38/4432a1c97535024fd79e9512f4a11b38.jpg" alt="Saurabh Sonkar">
+    <h1>Saurabh Sonkar</h1>
+    <p>Aspiring Programmer | Future Software Engineer</p>
+    <div class="social">
+      <a href="https://www.instagram.com/saurabhsonkar_21" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
+      <a href="#" target="_blank">GitHub</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>
+      Hello, my name is <strong>Saurabh Sonkar</strong>. I was born on <strong>23rd June 2006</strong>.  
+      My father's name is <strong>Ram Sewak</strong> and my mother's name is <strong>Vidya Devi</strong>.  
+      I completed my schooling up to class 12 in Isauli, Sultanpur, Uttar Pradesh, and I am currently pursuing <strong>BCA from KMCLU Lucknow</strong>.
+    </p>
+    <p>
+      I am passionate about technology and programming. My dream is to become a skilled programmer 
+      and work in a reputed company where I can contribute my knowledge, learn from experts, 
+      and grow in my career. I am dedicated to continuously learning new technologies and improving my skills.
+    </p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <p>
+      <strong>BCA</strong> - KMCLU Lucknow<br>
+      <strong>Schooling</strong> - Up to 12th, Isauli, Sultanpur, Uttar Pradesh
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 Saurabh Sonkar | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>"""
+
+# Write index.html
+index_file_path = os.path.join(folder_name, "index.html")
+with open(index_file_path, "w") as f:
+    f.write(index_html_content)
+
+# Create ZIP file for easy GitHub upload
+zip_path = '/mnt/data/saurabh-github-pages-website.zip'
+with zipfile.ZipFile(zip_path, 'w') as zipf:
+    zipf.write(index_file_path, arcname="index.html")
+
+zip_path
